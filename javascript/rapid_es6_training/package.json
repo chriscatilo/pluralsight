@@ -4,15 +4,18 @@
   "description": "",
   "main": "index.html",
   "scripts": {
-    "lite": "lite-server", 
-    "start": "npm run lite" ,
+    "lite": "lite-server",
+    "start": "npm run lite",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "es6-module-loader": "^0.17.11",
     "jasmine-core": "^2.8.0",
     "lite-server": "^2.3.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "traceur": "0.0.111"
+  }
 }
