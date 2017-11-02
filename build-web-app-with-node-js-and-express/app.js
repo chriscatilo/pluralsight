@@ -1,22 +1,11 @@
 var express = require('express'),
     app = express(),
     port = process.env.PORT || 5000,
-    bookRouter = express.Router();
+    bookRouter = require('./src/routes/bookRoutes');
 
 app.use(express.static('public'));
 app.set('views','src/views');
 app.set('view engine','ejs');
-
-bookRouter.route('/')
-    .get(function(req, res){
-        res.send('Hello Books');
-    });
-
-bookRouter.route('/single')
-    .get(function(req, res){
-        res.send('Hello Single Book');
-    });
-
 app.use('/books', bookRouter);
 
 app.get('/', function(req, res) {
