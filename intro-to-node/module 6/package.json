@@ -1,0 +1,17 @@
+{
+  "name": "m6",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1-assert.js",
+  "dependencies": {
+    "should": "13.1.3"
+  },
+  "devDependencies": {
+    "mocha": "4.0.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "ISC"
+}
