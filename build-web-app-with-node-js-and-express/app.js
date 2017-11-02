@@ -1,11 +1,17 @@
 var express = require('express'),
     app = express(),
-    port = process.env.PORT || 5000,
-    bookRouter = require('./src/routes/bookRoutes');
+    port = process.env.PORT || 5000;
+
+var nav = [
+    {link: '/books', text: 'Book'},
+    {link: '/authors', text: 'Author'}
+];
+var bookRouter = require('./src/routes/bookRoutes')(nav);
 
 app.use(express.static('public'));
 app.set('views','src/views');
 app.set('view engine','ejs');
+
 app.use('/books', bookRouter);
 
 app.get('/', function(req, res) {
