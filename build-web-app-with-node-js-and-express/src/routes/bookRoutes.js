@@ -5,6 +5,13 @@ var router = function(nav) {
         mongodb = require('mongodb').MongoClient,
         ObjectId = require('mongodb').ObjectId;
 
+    bookRouter.use(function(req, res, next) {
+        if (!req.user) {
+            res.redirect('/');
+        }
+        next();
+    });
+
     bookRouter.route('/')
         .get(function(req, res) {
             var url = 'mongodb://localhost:27017/libraryApp';

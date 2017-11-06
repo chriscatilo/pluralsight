@@ -13,15 +13,14 @@ module.exports = function() {
             var collection = db.collection('users');
             collection.findOne({
                 username: username
-            }, 
+            },
             function(err, results) {
-                if (results.password !== password) {
-                    done('Bad Password', null);
-                    return;
+                if (!results || results.password !== password) {
+                    done('User not exist or bad password', null);
+                } else {
+                    var user = results;
+                    done(null,user);
                 }
-                var user = results;
-                done(null,user);
-
             });
         });
     }));
