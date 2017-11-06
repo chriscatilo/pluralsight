@@ -1,6 +1,9 @@
 var express = require('express'),
     bodyParser = require('body-parser'),
-    app = express(),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session');
+
+var app = express(),
     port = process.env.PORT || 5000;
 
 var nav = [
@@ -14,6 +17,9 @@ var authRouter = require('./src/routes/authRoutes')(nav);
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(session({secret: 'library'}));
+require('./src/config/passport')(app);
 
 app.set('views','src/views');
 app.set('view engine','ejs');
